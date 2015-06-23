@@ -24,3 +24,5 @@ aldeed:collection2
 aldeed:autoform
 velocity:console-reporter
 xolvio:cucumber
+coffeescript
+msavin:mongol
