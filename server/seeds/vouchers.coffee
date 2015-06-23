@@ -1,7 +1,8 @@
 Meteor.startup () ->
-
-
-  Factory.define 'vouchers', Vouchers, {code: makeid(), status: 'fresh'}
+  Factory.define 'vouchers', Vouchers,
+    code: ()->
+      makeid()
+    status: 'fresh'
 
   if (Vouchers.find({}).count() == 0)
     console.log "SEED: (vouchers) Seeding with 1000 vouchers..."

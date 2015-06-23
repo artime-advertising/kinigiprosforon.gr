@@ -4,6 +4,8 @@ voucherSchema = new SimpleSchema
     label: "Code"
     min: 10
     max: 10
+    unique: true
+    index: true
   status:
     type: String
     allowedValues: ['fresh', 'claimed', 'completed']
