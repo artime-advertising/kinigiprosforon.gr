@@ -12,6 +12,12 @@ voucherSchema = new SimpleSchema
   entry:
     type: String
     optional: true
+  gift:
+    type: String
+    optional: true
+  claimedAt:
+    type: Date
+    optional: true
 
 @Vouchers = new Mongo.Collection('vouchers')
 @Vouchers.attachSchema voucherSchema
