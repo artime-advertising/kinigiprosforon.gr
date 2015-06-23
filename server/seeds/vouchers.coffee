@@ -1,14 +1,15 @@
 Meteor.startup () ->
-  Factory.define 'vouchers', Vouchers,
-    code: ()->
-      makeid()
-    status: 'fresh'
+  unless process.env.NODE_ENV == 'PRODUCTION'
+    Factory.define 'vouchers', Vouchers,
+      code: ()->
+        makeid()
+      status: 'fresh'
 
-  if (Vouchers.find({}).count() == 0)
-    console.log "SEED: (vouchers) Seeding with 1000 vouchers..."
-    _(1000).times (n) ->
-      Factory.create('vouchers')
-    console.log "SEED: (vouchers) This didn't take too long."
+    if (Vouchers.find({}).count() == 0)
+      console.log "SEED: (vouchers) Seeding with 1000 vouchers..."
+      _(1000).times (n) ->
+        Factory.create('vouchers')
+      console.log "SEED: (vouchers) This didn't take too long."
 
 makeid = ->
   text = ""
