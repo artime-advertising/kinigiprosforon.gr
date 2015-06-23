@@ -23,4 +23,4 @@ yasinuslu:blaze-meta
 aldeed:collection2
 aldeed:autoform
 sanjo:jasmine
-velocity:html-reporter
+velocity:console-reporter
