@@ -26,3 +26,4 @@ velocity:console-reporter
 xolvio:cucumber
 coffeescript
 msavin:mongol
+stevezhu:lodash

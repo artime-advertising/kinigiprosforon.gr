@@ -23,3 +23,15 @@ voucherSchema = new SimpleSchema
 @Vouchers.attachSchema voucherSchema
 
 @Vouchers.helpers({})
+
+if Meteor.isServer
+  @Vouchers.before.update (userId, doc, fieldNames, modifier, options) ->
+    if _.findKey(modifier, 'gift') is '$set'
+      Gifts.update modifier.$set.gift,
+        $set:
+          voucher: doc._id
+
+    if _.findKey(modifier, {gift: ''}) is '$unset'
+      Gifts.update doc.gift,
+        $unset:
+          voucher: ""
