@@ -1,5 +1,3 @@
-Future = Npm.require('fibers/future')
-
 Meteor.methods
   'Vouchers.claim': (voucherCode) ->
     voucher = Vouchers.findOne({code: voucherCode})
@@ -11,7 +9,6 @@ Meteor.methods
       random_gift = Gifts.findOne({voucher: {$exists: false} }, {skip: _.random(0, available_gifts_count )})
       selected_gift = voucher.gift || random_gift
 
-      future = new Future()
       Vouchers.update voucher._id,
         $set:
           status: "claimed"
