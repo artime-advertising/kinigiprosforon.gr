@@ -22,8 +22,6 @@ iron:router@1.0.0
 yasinuslu:blaze-meta
 aldeed:collection2
 aldeed:autoform
-velocity:console-reporter
-xolvio:cucumber
 coffeescript
 msavin:mongol
 stevezhu:lodash

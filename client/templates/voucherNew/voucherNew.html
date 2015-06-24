@@ -1,0 +1,12 @@
+<template name="voucherNew">
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="panel panel-default">
+      <div class="panel-heading">Εισάγετε τον κωδικό σας</div>
+      <div class="panel-body">
+        {{> quickForm id="voucherNewForm" type="method" meteormethod="Vouchers.claim" schema=voucherNewSchema}}
+      </div>
+    </div>
+  </div>
+</div>
+</template>

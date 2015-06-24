@@ -1,6 +1,6 @@
 Meteor.methods
-  'Vouchers.claim': (voucherCode) ->
-    voucher = Vouchers.findOne({code: voucherCode})
+  'Vouchers.claim': (params) ->
+    voucher = Vouchers.findOne({code: params.voucherCode})
     result = false
     getsReward = shouldGetPrize()
 
@@ -14,11 +14,13 @@ Meteor.methods
           status: "claimed"
           gift: selected_gift._id
           claimedAt: new Date
+
+      Vouchers.findOne({_id: voucher._id}, {fields: {status: 1, claimedAt: 1, code: 1}})
     else
       false
 
-  'Vouchers.unclaim': (voucherCode) ->
-    voucher = Vouchers.findOne({code: voucherCode})
+  'Vouchers.unclaim': (params) ->
+    voucher = Vouchers.findOne({code: params.voucherCode})
     result = false
     if voucher and voucher.gift
       Vouchers.update voucher._id,

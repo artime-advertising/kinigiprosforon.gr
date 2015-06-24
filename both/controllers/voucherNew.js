@@ -1,0 +1,4 @@
+voucherNewController = AppController.extend({
+  data: {
+  }
+});
