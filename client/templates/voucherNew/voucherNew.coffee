@@ -10,5 +10,7 @@ Template.voucherNew.helpers
 AutoForm.hooks
   voucherNewForm:
     onSuccess: (formType, result) ->
-      if result.status == "claimed"
+      unless result == false
         Router.go 'voucherEdit', {code: result.code}
+      else
+        Router.go '/gameOver'

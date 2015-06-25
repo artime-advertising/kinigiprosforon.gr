@@ -6,7 +6,7 @@
       <div class="congratulations">
         <div class="panel panel-default">
           <div class="panel-heading">Συγχαρητήρια</div>
-          <div class="panel-body">
+          <div class="panel-body">1
             Συγχαρητήρια, κερδίσατε ένα {{gift.name}}!
           </div>
         </div>
@@ -22,12 +22,23 @@
       </div>
       {{/if}}
 
-      {{# if voucher_is_completed}}
+      {{# if voucher_is_awarded}}
       <div class="congratulations">
         <div class="panel panel-default">
           <div class="panel-heading">Συγχαρητήρια</div>
           <div class="panel-body">
             Συγχαρητήρια, έχετε κερδίσει ένα {{gift.name}}!
+          </div>
+        </div>
+      </div>
+      {{/if}}
+
+      {{# if voucher_is_not_winning}}
+      <div class="congratulations">
+        <div class="panel panel-default">
+          <div class="panel-heading">Κριμα</div>
+          <div class="panel-body">
+            Καλή τύχη την επόμενη φορά
           </div>
         </div>
       </div>
