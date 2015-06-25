@@ -14,7 +14,10 @@ Router.route('/voucherNew', {
 
 Router.route('/voucherEdit/:code', {
   name: 'voucherEdit',
-  controller: 'voucherEditController'
+  controller: 'voucherEditController',
+  waitOn: function() {
+    this.subscribe('vouchers',{code: this.params.code});
+  }
 });
 
 Router.plugin('ensureSignedIn', {
